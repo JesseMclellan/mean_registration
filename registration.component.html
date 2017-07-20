@@ -1,0 +1,92 @@
+<h1>Registration</h1>
+<div *ngFor="let myUser of users, let i = 'index'">
+  <p class="complete" *ngIf="i == users.length-1">Thank you for registering with us {{myUser.firstName}}. We just sent you a conirmation email at {{myUser.email}}, and we will send all mail to {{myUser.street}}, {{myUser.city}}, {{myUser.state}}. Have a wonderful day!</p>
+</div>
+<form #myForm="ngForm" (submit)="registerUser()">
+  <div class="reg-box">
+    <h2>Account Information</h2>
+    <label>*First Name:  </label>
+    <input class="input" type="text" name="firstName" [(ngModel)]="user.firstName" 
+    #firstName="ngModel" required><div class="valid"><p *ngIf="firstName.touched && firstName.invalid">  First name is required</p></div><br>
+    <label>*Last Name:  </label>
+    <input class="input" type="text" name="lastName" [(ngModel)]="user.lastName" 
+    #lastName="ngModel" required><div class="valid"><p *ngIf="lastName.touched && lastName.invalid"> Last name is required</p></div><br>
+    <label>*Email:  </label>
+    <input class="input" type="text" name="email" [(ngModel)]="user.email"
+    #email="ngModel" required><div class="valid"><p *ngIf="email.touched && email.invalid">  Email is required</p></div><br>
+    <label>*Password:  </label>
+    <input class="input" type="text" name="password" [(ngModel)]="user.password"
+    #password="ngModel" required><div class="valid"><p *ngIf="password.touched && password.invalid">  Passsword is required</p></div><br>
+    <label>*Password Confirmation:  </label>
+    <input class="input" type="text" name="con_password" [(ngModel)]="user.con_password"
+    #con_password="ngModel" required><div class="valid"><p *ngIf="con_password.touched && con_password.invalid">  Password confirmation is required</p></div><br>
+    <label>*Street Address  </label>
+    <input class="input" type="text" name="street" [(ngModel)]="user.street"
+    #street="ngModel" required><div class="valid"><p *ngIf="street.touched && street.invalid">  Street address is required</p></div><br>
+    <label>Unit/Apt #  </label>
+    <input class="input" type="text" name="apt" [(ngModel)]="user.apt"
+    #apt="ngModel" ><br>
+    <label>*City  </label>
+    <input class="input" type="text" name="city" [(ngModel)]="user.city"
+    #city="ngModel" required><div class="valid"><p *ngIf="city.touched && city.invalid">  City is required</p></div><br>
+    <label>*State  </label>
+    <select class="input" name="state" [(ngModel)]="user.state"
+    #state="ngModel" required><div class="valid"><p *ngIf="state.touched && state.invalid">  State is required</p></div>
+      <option value="Alabama">Alabama</option>
+      <option value="Alaska">Alaska</option>
+      <option value="Arizona">Arizona</option>
+      <option value="Arkansas">Arkansas</option>
+      <option value="California">California</option>
+      <option value="Colorado">Colorado</option>
+      <option value="Connecticut">Connecticut</option>
+      <option value="Delaware">Delaware</option>
+      <option value="Florida">Florida</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Hawaii">Hawaii</option>
+      <option value="Idaho">Idaho</option>
+      <option value="Illinois">Illinois</option>
+      <option value="Indiana">Indiana</option>
+      <option value="Iowa">Iowa</option>
+      <option value="Kansas">Kansas</option>
+      <option value="Kentucky">Kentucky</option>
+      <option value="Louisiana">Louisiana</option>
+      <option value="Maine">Maine</option>
+      <option value="Maryland">Maryland</option>
+      <option value="Massachusetts">Massachusetts</option>
+      <option value="Michigan">Michigan</option>
+      <option value="Minnesota">Minnesota</option>
+      <option value="Mississippi">Mississippi</option>
+      <option value="Missouri">Missouri</option>
+      <option value="Montana">Montana</option>
+      <option value="Nebraska">Nebraska</option>
+      <option value="Nevada">Nevada</option>
+      <option value="New Hampshire">New Hampshire</option>
+      <option value="New Jersey">New Jersey</option>
+      <option value="New Mexico">New Mexico</option>
+      <option value="New York">New York</option>
+      <option value="North Carolina">North Carolina</option>
+      <option value="North Dakota">North Dakota</option>
+      <option value="Ohio">Ohio</option>
+      <option value="Oklahoma">Oklahoma</option>
+      <option value="Oregon">Oregon</option>
+      <option value="Pennsylvania">Pennsylvania</option>
+      <option value="Rhode Island">Rhode Island</option>
+      <option value="South Carolina">South Carolina</option>
+      <option value="South Dakota">South Dakota</option>
+      <option value="Tennessee">Tennessee</option>
+      <option value="Texas">Texas</option>
+      <option value="Utah">Utah</option>
+      <option value="Vermont">Vermont</option>
+      <option value="Virginia">Virginia</option>
+      <option value="Washington">Washington</option>
+      <option value="West Virginia">West Virginia</option>
+      <option value="Wisconsin">Wisconsin</option>
+      <option value="Wyoming">Wyoming</option>
+    </select><br>
+    <label>I'm feeling lucky:  </label>
+    <input type="radio" name="luck" value="true" [(ngModel)]="user.luck" #luck="ngModel">Yes
+    <input type="radio" name="luck" value="false" [(ngModel)]="user.luck" luck="ngModel">No
+  </div>
+  <input class="submit" type="submit" value="Register" [disabled]="myForm.invalid">
+</form>
+
